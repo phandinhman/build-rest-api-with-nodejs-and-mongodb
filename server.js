@@ -1,9 +1,12 @@
 const express = require('express');
 const dotEnv = require('dotenv');
+const dbConnection = require('./database/connection');
 
 dotEnv.config();
 
 const app = express();
+
+dbConnection();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
