@@ -7,7 +7,9 @@ module.exports.createProduct = async (data) => {
       ...data
     });
 
-    return await product.save();
+    let result = await product.save();
+
+    return result.toObject();
   } catch (error) {
     console.log('Something went wrong!');
     throw new Error(error());
